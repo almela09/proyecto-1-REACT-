@@ -1,7 +1,9 @@
-.homeDesign{
+
+
+.registerDesign{
     height: 82vh;
     width: 100vw;
-    background-color: coral;
+    background-color: rgb(238, 96, 238);
     font-display: flex;
     justify-content: flex-start;
     align-items: flex-start;

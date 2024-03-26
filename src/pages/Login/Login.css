@@ -1,7 +1,8 @@
-.homeDesign{
+
+.loginDesign{
     height: 82vh;
     width: 100vw;
-    background-color: coral;
+    background-color: rgb(131, 166, 55);
     font-display: flex;
     justify-content: flex-start;
     align-items: flex-start;

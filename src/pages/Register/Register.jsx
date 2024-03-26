@@ -1,12 +1,5 @@
+import "./Register.css";
 
-import './Register.css'
-
-export const Register = ()=>{
-
-    return(
-
-        <div className="registerDesign">
-
-        </div>
-    )
-}
+export const Register = () => {
+  return <div className="registerDesign"></div>;
+};

@@ -1,5 +1,5 @@
 
-.linkDesign{
+.navigateDesign{
     font-weight: bold;
     color: white;
     margin: 1em;
@@ -7,7 +7,7 @@
     
 }
 
-.linkDesign:hover{
+.navigateDesign:hover{
     cursor: pointer;
     transition: 0.5s;
     color: orange;

@@ -1,0 +1,8 @@
+.homeDesign{
+    height: 82vh;
+    width: 100vw;
+    background-color: coral;
+    font-display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

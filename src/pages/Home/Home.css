@@ -1,5 +1,4 @@
-
-.registerDesign {
+.homeDesign {
 
     height: 88vh;
     width: 100vw;
@@ -10,9 +9,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.error {
-    height: 1em;
-    color: red;
 }

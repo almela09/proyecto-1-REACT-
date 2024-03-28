@@ -1,29 +1,17 @@
-
 .loginDesign {
-  height: 82vh;
+
+  height: 88vh;
   width: 100vw;
-  background-color:rgb(245, 193, 155);
+
+  background-color: beige;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: 0.4s;
 }
 
-.loginButton{
-
-    height: 3em;
-    width: 10em;
-    border-radius: 0.4em;
-    background-color: brown;
-    transition: 0.4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loginButton:hover{
-    cursor: pointer;
-    background-color: salmon;
-    transition: 0.4s;
+.error {
+  height: 1em;
+  color: red;
 }

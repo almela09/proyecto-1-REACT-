@@ -87,7 +87,7 @@ export const Register = () => {
             userError.nameError !== "" ? "inputDesignError" : ""
           }`}
           type={"text"}
-          placeholder={"name"}
+          placeholder={"last name"}
           name={"last_name"}
           value={user.last_name || ""}
           onChangeFunction={(e) => inputHandler(e)}

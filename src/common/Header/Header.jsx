@@ -1,25 +1,7 @@
-import { Navigator } from "../Navigator/Navigator"
+import { Navigator } from "../Navigator/Navigator";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
-// export const Header = () => {
-//   const token = false; //esto esta hardcodeadisimo,aqui va el token del back
-//   return (
-//     <div className="headerDesign">
-//       <CustomLink title={"home"} path={"/"} />
-//       {token ? (
-//         <div className="menu"> 
-//           <CustomLink title="Name" path="/login" />
-//           <CustomLink title="Log-out" path="/log-out" />
-//         </div>
-//       ) : (
-//         <div className="menu">
-//           <CustomLink title="register" path="/register" />
-//           <CustomLink title="login" path="/login" />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
+
 export const Header = () => {
   const navigate = useNavigate();
   const passport = JSON.parse(localStorage.getItem("passport"));
@@ -39,6 +21,7 @@ export const Header = () => {
             title={passport?.decodificado?.first_name}
             destination={"/profile"}
           />
+          <Navigator title={"servicios"} destination={"/services"} />
           <div onClick={logOut}>
             <Navigator title={"log out"} destination={"/"} />
           </div>
@@ -47,6 +30,7 @@ export const Header = () => {
         <div className="authMenu">
           <Navigator title={"register"} destination={"/register"} />
           <Navigator title={"login"} destination={"/login"} />
+          <Navigator title={"servicios"} destination={"/servicios"} />
         </div>
       )}
     </div>

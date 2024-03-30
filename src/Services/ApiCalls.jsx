@@ -96,3 +96,25 @@ export const UpdateProfile = async (token, data) => {
   }
 };
 
+export const getServices = async () => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  try {
+    const response = await fetch(`${root}services`, options);
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message || 'Error al obtener los servicios');
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error al cargar los servicios:", error);
+    return [];
+  }
+};

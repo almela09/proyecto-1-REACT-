@@ -10,66 +10,6 @@ import { Header } from "../../common/Header/Header";
 
 
 
-
-// export const Login = () => {
-//   const[credenciales, setCredenciales] = useState({
-//     email:"",
-//     password:""
-//   })
-//   const [msgError, setMsgError] = useState("");
-
-//   const inputHandler =(e)=>{
-//     setCredenciales((prevState)=>({
-//       ...prevState,
-//       [e.target.name]: e.target.value,
-
-//     }))
-//   };
-
-//   const logMe = async()=>{
-//     for(let credencial in credenciales){
-//       if (credenciales[credencial] === ""){
-//         setMsgError("no has rellenado los campos listo calixto")
-//         return;
-//       }
-//     }
-//     const fetched = await loginMe(credenciales)
-//    if(!fetched.success){
-//     setMsgError(fetched.message);
-//     return;
-//    }
-//    const decodificado = decodeToken(fetched.token);
-
-//    sessionStorage.setItem("token", fetched);
-//    sessionStorage.setItem("user",JSON.stringify(decodificado))
-//   }
-//   return (
-//     <div className="loginDesign">
-//       {/* <pre>{JSON.stringify(credenciales)}</pre> */}
-//     <CustomInput
-//       design= "inputDesign"
-//       type= "email"
-//       name="email"
-//       value= {credenciales.email || ""}
-//       placeholder="escribe tu email"
-//       functionChange={inputHandler}
-        
-//     />
-//       <CustomInput
-//       design= "inputDesign"
-//       type= "password"
-//       name="password"
-//       value= {credenciales.password || ""}
-//       placeholder="escribe tu contraseña"
-//       functionChange={inputHandler}
-        
-//     />
-//     <div className="loginButton"onClick={logMe}>logueate ejtupido</div>
-//     <div>{msgError}</div>
-//   </div>
-  
-//   )
-// };
 export const Login = () => {
   const datosUser = JSON.parse(localStorage.getItem("passport"));
   const navigate = useNavigate();

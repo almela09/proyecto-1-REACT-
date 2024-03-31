@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Header } from "../../common/Header/Header"
 import { GetAppointment } from "../../Services/ApiCalls"
 import "./Appointments.css"
+
 export const Appointments = ()=>{
     const navigate = useNavigate()
     const dataUser = JSON.parse(localStorage.getItem("passport"));

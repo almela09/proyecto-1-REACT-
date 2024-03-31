@@ -80,9 +80,15 @@ export const Appointments = ()=>{
         }
         getDataAppointments()
     },[])
+    
     const newAppointments = async ()=> {
         try {
             const petition = await createAppointments(tokenStorage, appointmentsData)
+            const data = response.data
+            setAppointmentsData({
+                dateAppointments: data.dateAppointments,
+                service_name: data.service,
+            })
         } catch (error) {
             console.log(error)
             
@@ -91,8 +97,9 @@ export const Appointments = ()=>{
     return (
         <>
         <Header />
-        <div>
-
+        <div className= "appointmentsDesign">
+            <div></div>
+            <div></div>
         </div>
         </>
     )

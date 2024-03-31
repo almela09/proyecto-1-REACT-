@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Header } from "../../common/Header/Header"
-
+import { GetAppointment } from "../../Services/ApiCalls"
+import "./Appointments.css"
 export const Appointments = ()=>{
     const navigate = useNavigate()
     const dataUser = JSON.parse(localStorage.getItem("passport"));
@@ -30,6 +31,13 @@ export const Appointments = ()=>{
     }, [tokenStorage, loadedData])
        
     return (
-        <></>
+        
+        <>
+        <Header/>
+        <div className= "appointmentDesign">
+            <div className= "titleAppointDesign">Titulin citas</div>
+        </div>
+
+        </>
     )
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getServices } from "../../Services/ApiCalls";
 import { Header } from "../../common/Header/Header"
 import "./Servicios.css"
-import { Card } from "../../common/Card/Card";
+
 
 export const Servicios = () => {
     const [servicios, setServicios] = useState([]);

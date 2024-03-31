@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Header } from "../../common/Header/Header"
-import { getAppointments } from "../../Services/ApiCalls"
+import { getAppointments, createAppointments } from "../../Services/ApiCalls"
 import dayjs from 'dayjs';
+
 import "./Appointments.css"
 
 // export const Appointments = ()=>{
@@ -79,10 +80,20 @@ export const Appointments = ()=>{
         }
         getDataAppointments()
     },[])
-
+    const newAppointments = async ()=> {
+        try {
+            const petition = await createAppointments(tokenStorage, appointmentsData)
+        } catch (error) {
+            console.log(error)
+            
+        }
+    }
     return (
         <>
         <Header />
+        <div>
+
+        </div>
         </>
     )
 }

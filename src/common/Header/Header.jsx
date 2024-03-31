@@ -31,6 +31,8 @@ export const Header = () => {
           <Navigator title={"register"} destination={"/register"} />
           <Navigator title={"login"} destination={"/login"} />
           <Navigator title={"servicios"} destination={"/servicios"} />
+          <Navigator title={"appointments"} destination={"/appointments"} />
+
         </div>
       )}
     </div>

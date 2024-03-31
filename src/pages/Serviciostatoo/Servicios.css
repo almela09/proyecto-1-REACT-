@@ -7,6 +7,13 @@
 
 }
 
+/* .servicesDesign:hover{
+    transition: 0.5s;
+
+    cursor: pointer;
+    transform: scale(1.05);
+} */
+
 .itemServices{
 
     margin: 10px;

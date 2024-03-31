@@ -42,7 +42,7 @@ export const Servicios = () => {
     return (
       <>
         <Header />
-        {/* <Card /> */}
+      
         <div className="servicesDesign">
     
           {servicios.length > 0 
@@ -59,7 +59,7 @@ export const Servicios = () => {
 
           }
           ))
-        :("")}
+        :("")} 
         
         </div>
         

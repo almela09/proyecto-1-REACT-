@@ -4,10 +4,47 @@
     height: 100vh;
     width: 100vw;
 
-    background-color: #1e1a1d;
+    background-color: #faf6f9;
+    color:aliceblue;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+}
+
+.cardAppoint{
+
+    min-height: 4em;
+    width: 14em;
+
+    border-radius: 0.5em;
+
+    background-color: #8f0ddf;
+    color: white;
+
+    margin: 0.5em;
+    padding: 1.1em;
+    line-height: 2.5em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardTitleAppoint{
+    min-height: 4em;
+    width: 14em;
+    
+    border-radius: 0.5em;
+
+    background-color: #12120E;
+    color: white;
+    margin: 1em;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }

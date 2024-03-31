@@ -21,6 +21,7 @@ export const Header = () => {
             title={passport?.decodificado?.first_name}
             destination={"/profile"}
           />
+          <Navigator title={"appointments"} destination={"/appointments"} />
           <Navigator title={"servicios"} destination={"/services"} />
           <div onClick={logOut}>
             <Navigator title={"log out"} destination={"/"} />
@@ -31,7 +32,7 @@ export const Header = () => {
           <Navigator title={"register"} destination={"/register"} />
           <Navigator title={"login"} destination={"/login"} />
           <Navigator title={"servicios"} destination={"/servicios"} />
-          <Navigator title={"appointments"} destination={"/appointments"} />
+
 
         </div>
       )}

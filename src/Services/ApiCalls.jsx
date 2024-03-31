@@ -123,11 +123,11 @@ export const getAppointments = async (token) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
   };
   try {
-    const response = await fetch(`${root}appointments`, options);
+    const response = await fetch(`${root}myappointments`, options);
     const data = await response.json();
 
     if (!data.success) {

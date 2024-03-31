@@ -119,7 +119,7 @@ export const getServices = async () => {
   }
 };
 
-export const GetAppointment = async (token) => {
+export const getAppointments = async (token) => {
   const options = {
       method: "GET",
       headers: {

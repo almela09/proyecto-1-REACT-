@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Header } from "../../common/Header/Header"
-import { GetAppointment } from "../../Services/ApiCalls"
+import { getAppointments } from "../../Services/ApiCalls"
 import dayjs from 'dayjs';
 import "./Appointments.css"
 
@@ -71,12 +71,18 @@ export const Appointments = ()=>{
 
         const getDataAppointments = async ()=>{
             try {
-                
+              const fetched = await getAppointments(tokenStorage)  
+              setAppointments(fetched.data)
             } catch (error) {
-                
+                console.log(error)
             }
         }
-    })
+        getDataAppointments()
+    },[])
 
-
+    return (
+        <>
+        <Header />
+        </>
+    )
 }

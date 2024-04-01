@@ -163,3 +163,4 @@ export const createAppointments = async (token, appointmentsData) => {
     return error;
   }
 };
+

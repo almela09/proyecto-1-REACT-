@@ -6,6 +6,7 @@ import { RegisterUser }from "../../Services/ApiCalls"
 import { validame } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../common/Header/Header";
+import { Tipografia } from "../../common/Tipografia/Tipografia";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -70,6 +71,12 @@ export const Register = () => {
       <Header />
       <div className="registerDesign">
         <pre>{JSON.stringify(user, null, 2)}</pre>
+        <Tipografia
+                text="Regístrate"
+                fontSize="30px"
+                color="blue"
+                fontFamily="Impact"
+            />
         <CInput
           className={`inputDesign ${
             userError.nameError !== "" ? "inputDesignError" : ""

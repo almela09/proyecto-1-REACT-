@@ -4,7 +4,16 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    background-color: whitesmoke;
+    height: 88vh;
+    width: 100vw;
 
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:flex-start
 }
 
 /* .servicesDesign:hover{
@@ -18,8 +27,8 @@
 
     margin: 10px;
     padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #2f0a0a;
+    border-radius: 10px;
     width: 80%;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -27,17 +36,18 @@
 .titleServicesDesign {
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+   
 }
 
 .descriptionServicesDesign {
-    font-size: 16px;
-    color: #666;
+    font-size: 20px;
+    color: #130101;
 }
 
-.cardDesignServices{
+/* .cardDesignServices{
 
  background-color: rgb(27, 24, 26);
 
 
-}
+} */

@@ -4,6 +4,7 @@ import { getAppointments, createAppointments } from "../../Services/ApiCalls";
 import {CInput} from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton";
 import { getServices } from "../../Services/ApiCalls";
+import { Tipografia } from "../../common/Tipografia/Tipografia";
 
 
 import "./Appointments.css";
@@ -37,7 +38,7 @@ export const Appointments = () => {
 
 
 
-  const sacaCita = async () => { //aqui tienes que poner el codigo de sacar cita
+  const sacaCita = async () => { 
     try {
       for (let elemento in credenciales) {
         if (credenciales[elemento] === "") {
@@ -45,7 +46,7 @@ export const Appointments = () => {
         }
       }
 
-      const fetched = await createAppointments(credenciales); //aqui en vez de loginuser, llamas a sacar la cita, que estará....
+      const fetched = await createAppointments(credenciales); 
     
 
       const decodificado = decodeToken(fetched.token);
@@ -108,17 +109,25 @@ export const Appointments = () => {
     <>
       <Header />
       <div className="appointmentsDesign">
-        <div className="cardTitleAppoint">Pídenos Cita</div>
+        <div className="cardTitleAppoint">
+
+        <Tipografia
+                text="Pídenos Cita"
+                fontSize="30px"
+                color="blue"
+                fontFamily="Impact"
+            />
+        </div>
         <div className="cardAppoint">
 
             <CInput
                 className= {"inputAppointmentsDesign"}
                 type={"text"}
                 name={"dateAppointments"}
-                value={setAppointmentsData.dateAppointments || "01/04/2024"}
+                value={setAppointmentsData.dateAppointments || "03/04/2024"}
                 placeholder={"DD/MM/YYY"}
                 //functionChange={appointmentsInputHandler}
-                disabled={""}
+                disabled={ ""}
             
             />
 
@@ -133,7 +142,7 @@ export const Appointments = () => {
 
             <CButton 
                 className={"cButtonDesign"}
-                title={"Pillar cita ahí"}
+                title={"Reservar cita"}
                 functionEmit={""}
             />
         </div>

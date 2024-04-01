@@ -1,9 +1,9 @@
 .homeDesign {
 
-    height: 88vh;
+    height: 89vh;
     width: 100vw;
 
-    background-color: rgb(126, 210, 252);
+    background-color: whitesmoke;
 
     display: flex;
     flex-direction: column;
@@ -19,9 +19,34 @@
     background-image: url("../../assets/images/michitatu.jpg");
     background-color: rgb(12, 85, 12);
 
-    display:flex;
+    display:block;
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    position: sticky;
+  top: 0;
+
+ 
+
 }
 
+.welcomeDesign{
+
+    background-color: whitesmoke;
+    padding-left: 30%;
+    margin-left: 120%;
+   margin-top: 0%;
+   width: 30vw;
+   height: 88vh;
+   align-items: center;
+   justify-content: center;
+}
+
+/* .containerDesign{
+
+    background-color: grey;
+    border-radius: 0.5em;
+    padding: 7%;
+    width: 40vw;
+    height: 20vh;
+} */

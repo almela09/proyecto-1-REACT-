@@ -3,9 +3,18 @@ import { Header } from "../../common/Header/Header";
 import { getAppointments, createAppointments } from "../../Services/ApiCalls";
 import {CInput} from "../../common/CInput/CInput"
 import { CButton } from "../../common/CButton/CButton";
-import dayjs from "dayjs";
+import { getServices } from "../../Services/ApiCalls";
+
 
 import "./Appointments.css";
+
+
+                  const fetched = await getServices()
+                  const servicios = fetched.data;  
+                  console.log(servicios)
+
+
+
 
 export const Appointments = () => {
   const dataUser = JSON.parse(localStorage.getItem("passport"));
@@ -25,13 +34,52 @@ export const Appointments = () => {
     }));
   };
 
+
+
+
+  const sacaCita = async () => { //aqui tienes que poner el codigo de sacar cita
+    try {
+      for (let elemento in credenciales) {
+        if (credenciales[elemento] === "") {
+          throw new Error("Todos los campos tienen que estar rellenos");
+        }
+      }
+
+      const fetched = await createAppointments(credenciales); //aqui en vez de loginuser, llamas a sacar la cita, que estará....
+    
+
+      const decodificado = decodeToken(fetched.token);
+
+      const passport = {
+        token: fetched.token,
+        decodificado: decodificado,
+      };
+
+      localStorage.setItem("passport", JSON.stringify(passport));
+
+      setMsgError(
+        `Hola ${decodificado.name}, bienvenido de nuevo al HORROR MAXIMO`
+      );
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      setMsgError(error.message);
+    }
+  };
+
+
+
+
+
   useEffect(() => {
     if (appointments.length === 0) {
         const getDataAppointments = async () => {
             try {
               const fetched = await getAppointments(tokenStorage);
               setAppointments(fetched.data);
-              console.log(fetched)
+              //console.log(fetched)
             } catch (error) {
               console.log(error);
             }
@@ -49,7 +97,7 @@ export const Appointments = () => {
       const petition = await createAppointments(tokenStorage, appointmentsData);
       const data = response.data;
       setAppointmentsData({
-        dateAppointments: data.dateAppointments,
+        // dateAppointments: data.dateAppointments,
         service_name: data.service,
       });
     } catch (error) {
@@ -60,32 +108,32 @@ export const Appointments = () => {
     <>
       <Header />
       <div className="appointmentsDesign">
-        <div className="cardTitleAppoint">Tu cita aqui</div>
+        <div className="cardTitleAppoint">Pídenos Cita</div>
         <div className="cardAppoint">
 
             <CInput
                 className= {"inputAppointmentsDesign"}
-                type={"date"}
-                name={"dateAppointments"}
-                value={setAppointmentsData.dateAppointments || ""}
-                placeholder={"DD/MM/YYY"}
-                functionChange={appointmentsInputHandler}
-                disabled={""}
-            
-            />
-             <CInput
-                className= {"inputAppointmentsDesign"}
                 type={"text"}
-                name={"service_name"}
-                value={appointmentsData.service_name || ""}
-                placeholder={"service_name"}
-                functionChange={appointmentsInputHandler}
+                name={"dateAppointments"}
+                value={setAppointmentsData.dateAppointments || "01/04/2024"}
+                placeholder={"DD/MM/YYY"}
+                //functionChange={appointmentsInputHandler}
                 disabled={""}
             
             />
+
+        <select className="inputAppointmentsDesign">
+            {servicios.map((servicio, index) => (
+                <option key={index} value={servicio.id}>
+                    {servicio.serviceName || "Servicio no disponible"}
+                </option>
+            ))}
+        </select>
+
+
             <CButton 
-                className={""}
-                title={""}
+                className={"cButtonDesign"}
+                title={"Pillar cita ahí"}
                 functionEmit={""}
             />
         </div>

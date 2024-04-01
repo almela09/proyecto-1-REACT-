@@ -1,5 +1,6 @@
 import { Navigator } from "../Navigator/Navigator";
 import { useNavigate } from "react-router-dom";
+import {Tipografia} from "../Tipografia/Tipografia"
 import "./Header.css";
 
 export const Header = () => {
@@ -12,9 +13,19 @@ export const Header = () => {
   };
 
   return (
+    
     <div className="headerDesign">
+     {/* <div className="logoDesign">MICHI TATTOO</div> */}
+     <div className="letraDesign">
+     <Tipografia
+                text="Michi Tattoo"
+                fontSize="43px"
+                color="white"
+                fontFamily="Impact"
+            />
+     </div>
       <Navigator title={"home"} destination={"/"} />
-
+   
       {passport?.token ? (
         <div className="authMenu">
           <Navigator

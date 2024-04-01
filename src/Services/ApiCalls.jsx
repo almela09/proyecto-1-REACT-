@@ -107,9 +107,9 @@ export const getServices = async () => {
     const response = await fetch(`${root}services`, options);
     const data = await response.json();
 
-    if (!data.success) {
+    /*if (!data.success) {
       throw new Error(data.message || "Error al obtener los servicios");
-    }
+    }*/
 
     return data;
   } catch (error) {
@@ -178,9 +178,9 @@ export const getUsers = async(token)=>{
 
     const data = await response.json()
 
-    if (!data.success) {
+    /*if (!data.success) {
       throw new Error(data.message)
-    }
+    }*/
 
     return data
   } catch (error) {

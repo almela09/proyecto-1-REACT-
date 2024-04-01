@@ -10,12 +10,8 @@ import { Tipografia } from "../../common/Tipografia/Tipografia";
 import "./Appointments.css";
 
 
-                  const fetched = await getServices()
+                  const fetched = await getServices(); //esto hay que cambiarlo
                   const servicios = fetched.data;  
-                  console.log(servicios)
-
-
-
 
 export const Appointments = () => {
   const dataUser = JSON.parse(localStorage.getItem("passport"));
@@ -28,50 +24,31 @@ export const Appointments = () => {
     service_name: "",
   });
 
-  const appointmentsInputHandler= (e) => {
+  const appointmentsInputHandler = (e) => {
+    console.log("a");
     setAppointmentsData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
+        ...prevState,
+        [e.target.name]: e.target.value,
     }));
-  };
+    console.log(e.target.value);
+};
 
 
 
-
-  const sacaCita = async () => { 
-    try {
-      for (let elemento in credenciales) {
-        if (credenciales[elemento] === "") {
-          throw new Error("Todos los campos tienen que estar rellenos");
-        }
-      }
-
-      const fetched = await createAppointments(credenciales); 
-    
-
-      const decodificado = decodeToken(fetched.token);
-
-      const passport = {
-        token: fetched.token,
-        decodificado: decodificado,
+const handleCreateAppointments = async () => {
+  try {
+      // Construye el objeto `a` usando los valores del estado
+      let a = {
+          'serviceId': appointmentsData.serviceId,
+          'appointmentDate': appointmentsData.appointmentDate
       };
-
-      localStorage.setItem("passport", JSON.stringify(passport));
-
-      setMsgError(
-        `Hola ${decodificado.name}, bienvenido de nuevo al HORROR MAXIMO`
-      );
-
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } catch (error) {
-      setMsgError(error.message);
-    }
-  };
-
-
-
+      console.log(a);
+      await createAppointments(tokenStorage, a);
+      // Procesa la respuesta como sea necesario
+  } catch (error) {
+      console.error("Error al crear la cita:", error);
+  }
+};
 
 
   useEffect(() => {
@@ -80,7 +57,6 @@ export const Appointments = () => {
             try {
               const fetched = await getAppointments(tokenStorage);
               setAppointments(fetched.data);
-              //console.log(fetched)
             } catch (error) {
               console.log(error);
             }
@@ -121,41 +97,56 @@ export const Appointments = () => {
         <div className="cardAppoint">
 
             <CInput
-                className= {"inputAppointmentsDesign"}
-                type={"text"}
-                name={"dateAppointments"}
-                value={setAppointmentsData.dateAppointments || "03/04/2024"}
-                placeholder={"DD/MM/YYY"}
-                //functionChange={appointmentsInputHandler}
-                disabled={ ""}
-            
-            />
+    className="inputAppointmentsDesign"
+    type="text"
+    name="appointmentDate"  // Cambiar para reflejar su propósito y coincidir con la estructura del estado
+    placeholder="DD/MM/YYY"
+    onChangeFunction={appointmentsInputHandler}  // Usa onChange para actualizar el estado
+    disabled=""
+    value={appointmentsData.appointmentDate}
+             />
 
-        <select className="inputAppointmentsDesign">
-            {servicios.map((servicio, index) => (
-                <option key={index} value={servicio.id}>
-                    {servicio.serviceName || "Servicio no disponible"}
-                </option>
-            ))}
-        </select>
+<select 
+    className="inputAppointmentsDesign"
+    name="serviceId"  // Asegúrate de que el nombre coincida con el estado
+    value={appointmentsData.serviceId}  // Agrega un valor controlado para el select
+    onChange={appointmentsInputHandler}  // Usa onChange para actualizar el estado
+>
+        <option key="0" value="0">
+            Select one
+        </option>
+    {servicios.map((servicio, index) => (
+        <option key={index} value={servicio.id}>
+            {servicio.serviceName || "Servicio no disponible"}
+        </option>
+    ))}
+</select>
 
 
             <CButton 
                 className={"cButtonDesign"}
                 title={"Reservar cita"}
-                functionEmit={""}
+                functionEmit={handleCreateAppointments}
             />
         </div>
         <div className= "cardTitleAppoint"></div>  {
                       
                         <div> {
+                          
                         appointments.map(appointment => {
-                            const formatDate = dayjs(appointment.dateAppointment).format('DD/MM/YYYY');
+                          console.log(appointment);
+                            const date = new Date(appointment.appointmentDate);
+                            // Obtener el día, mes y año
+                            const day = date.getDate().toString().padStart(2, '0');  // Asegurar 2 dígitos
+                            const month = (date.getMonth() + 1).toString().padStart(2, '0');  // Los meses empiezan en 0, así que sumar 1
+                            const year = date.getFullYear();
+                            // Formatear la fecha como dd/mm/aaaa
+                            const formattedDate = `${day}/${month}/${year}`;
                             return (
                                 <div key={appointment.id} className='cardAppointmentsDesign'>
                                     <div className='cardAppointments'>
-                                        <div>{appointment.service.service_name}</div>
-                                        <div>{formatDate}</div>
+                                        <div>{appointment.service.serviceName}</div>
+                                        <div>{formattedDate}</div>
                                         <div>borrar cita </div>
                                     </div>
                                 </div>

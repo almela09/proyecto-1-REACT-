@@ -7,8 +7,6 @@ export const Header = () => {
   const navigate = useNavigate();
   const passport = JSON.parse(localStorage.getItem("passport"));
 
-  console.log(passport?.decodificado);
-
   const logOut = () => {
     localStorage.removeItem("passport");
     navigate("/login");

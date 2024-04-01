@@ -26,8 +26,10 @@ export const Admin = () => {
     }
   };
   useEffect(() => {
+    
+    console.log(Users.length);
     if (Users.length === 0) {
-      getAllUsers;
+      getAllUsers();
     }
   }, [Users, tokenStorage]);
 
@@ -41,9 +43,9 @@ export const Admin = () => {
     try {
       const fetched = await deleteUser(tokenStorage, UserId);
 
-      if (!fetched.success) {
+      /*if (!fetched.success) {
         setUsers(Users.filter((items) => items.id !== UserId));
-      }
+      }*/
       getAllUsers();
     } catch (error) {
       console.log(error.message);
@@ -71,7 +73,7 @@ export const Admin = () => {
                   <CButton
                     className={"CButtonDesign"}
                     title={`Delete ${User.first_name} `}
-                    functionEmit={() => deleteUsers(User.first_name)}
+                    functionEmit={() => deleteUsers(User.id)}
                   />
                 </div>
               );

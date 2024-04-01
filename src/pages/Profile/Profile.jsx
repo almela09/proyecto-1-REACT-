@@ -67,6 +67,9 @@ export const Profile = () => {
         }
       }, [user]);
 
+      console.log("a");
+      console.log(tokenStorage);
+
       const updateData = async () => {
     
         try {

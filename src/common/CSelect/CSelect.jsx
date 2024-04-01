@@ -1,6 +1,6 @@
 import "./CSelect.css"
 
-export const CButton = ({className, name, value, functionChange}) => {
+export const CSelect = ({className, name, value, functionChange}) => {
 
     return (
        <input

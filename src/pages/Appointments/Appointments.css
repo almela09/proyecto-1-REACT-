@@ -5,7 +5,7 @@
     width: 100vw;
 
     background-color: #faf6f9;
-    color:aliceblue;
+    color:rgb(15, 80, 137);
 
     display: flex;
     flex-direction: column;
@@ -17,14 +17,15 @@
 
     min-height: 4em;
     width: 14em;
-
-    border-radius: 0.5em;
+    
+    
+    border-radius: 0.8em;
 
     /* background-color: #8f0ddf; */
     color: white;
 
-    margin: 0.5em;
-    padding: 1.1em;
+    margin: 2.5em;
+    padding: 2.5em;
     line-height: 2.5em;
 
     display: flex;
@@ -40,7 +41,7 @@
     border-radius: 0.5em;
 
    
-    color: rgb(9, 1, 1);
+    color: rgb(137, 10, 10);
     margin: 1em;
     
     display: flex;

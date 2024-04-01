@@ -60,9 +60,9 @@ export const GetProfile = async (token) => {
 
     const data = await response.json();
 
-    if (!data.success) {
+    /*if (!data.success) {
       throw new Error(data.message);
-    }
+    }*/
 
     return data;
   } catch (error) {
@@ -70,7 +70,7 @@ export const GetProfile = async (token) => {
   }
 };
 
-export const UpdateProfile = async (token, data) => {
+export const UpdateProfile = async (token, data) => { 
   const options = {
     method: "PUT",
     headers: {
@@ -85,9 +85,9 @@ export const UpdateProfile = async (token, data) => {
 
     const data = await response.json();
 
-    if (!data.success) {
+    /*if (!data.success) {
       throw new Error(data.message);
-    }
+    }*/
 
     return data;
   } catch (error) {
@@ -164,3 +164,61 @@ export const createAppointments = async (token, appointmentsData) => {
   }
 };
 
+export const getUsers = async(token)=>{
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+  }
+
+  try {
+    const response = await fetch(`${root}users`, options)
+
+    const data = await response.json()
+
+    if (!data.success) {
+      throw new Error(data.message)
+    }
+
+    return data
+  } catch (error) {
+    return error
+    
+  }
+
+}
+
+export const deleteUser = async (token, UserId) =>{
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    }
+    // body: JSON.stringify(data)
+  }
+
+  try {
+    const response = await fetch(`${root}users/${UserId}`, options)
+
+    const data = await response.json()
+
+    if (!data.success) {
+      throw new Error(data.message)
+    }
+
+    return data
+
+  } catch (error) {
+    return error
+  }
+
+
+
+}
+
+
+ 

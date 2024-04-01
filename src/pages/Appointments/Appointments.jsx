@@ -146,7 +146,7 @@ export const Appointments = () => {
                 functionEmit={""}
             />
         </div>
-        <div className= "cardTitleAppoint">Citas</div>  {
+        <div className= "cardTitleAppoint"></div>  {
                       
                         <div> {
                         appointments.map(appointment => {

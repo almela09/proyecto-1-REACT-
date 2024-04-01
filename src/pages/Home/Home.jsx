@@ -23,14 +23,14 @@ export const Home = () => {
             />
             <div className="containerDesign">
             <Tipografia
-                text="Situados en el centro de Valencia a dos pasos de la Estacion del Nord, visitanos para conocernos."
+                text="Donde nada de la página funciona :), si quieres mas info pues estas fastidiado."
                 fontSize="25px"
                 color="blue"
                 fontFamily="Arial"
             />
             </div>
       </h1>
-      <p> soy un maldito parrafo y aqui escribo cosas </p>
+      <p> </p>
       </div>
       
       </div> 

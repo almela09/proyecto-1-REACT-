@@ -66,11 +66,11 @@ export const Profile = () => {
           getUserProfile();
         }
       }, [user]);
-    
+
       const updateData = async () => {
     
         try {
-          const fetched = await UpdateProfile(tokenStorage, first_name) 
+          const fetched = await UpdateProfile(tokenStorage, user) ;
     
           setUser({
             name: fetched.data.first_name,
@@ -97,7 +97,7 @@ export const Profile = () => {
                     userError.nameError !== "" ? "inputDesignError" : ""
                   }`}
                   type={"text"}
-                  placeholder={""}
+                  placeholder={"nombre"}
                   name={"first_name"}
                   disabled={write}
                   value={user.first_name || ""}
@@ -109,7 +109,7 @@ export const Profile = () => {
                     userError.surnameError !== "" ? "inputDesignError" : ""
                   }`}
                   type={"text"}
-                  placeholder={""}
+                  placeholder={"apellido"}
                   name={"last_name"}
                   disabled={write}
                   value={user.last_name || ""}
@@ -121,7 +121,7 @@ export const Profile = () => {
                     userError.emailError !== "" ? "inputDesignError" : ""
                   }`}
                   type={"email"}
-                  placeholder={""}
+                  placeholder={"email"}
                   name={"email"}
                   disabled={"disabled"}
                   value={user.email || ""}

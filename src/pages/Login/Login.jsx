@@ -70,7 +70,7 @@ export const Login = () => {
       localStorage.setItem("passport", JSON.stringify(passport));
 
       setMsgError(
-        `Hola ${decodificado.name}, bienvenido de nuevo al HORROR MAXIMO`
+        `Hola ${decodificado.name}, bienvenido a Michi Tattoo`
       );
 
       setTimeout(() => {

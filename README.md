@@ -44,9 +44,10 @@ Proyecto frontend que se basa en la api rest realizada con anterioridad de un es
 
 ### Bugs conocidos 🐛
 
-❗Problema con la hora al seleccionar citas
-❗Acceso a admin a veces salta al home
-❗En el header muestra el id y no el nombre del usuario
+❗Problema con la hora al seleccionar citas.
+❗Acceso a admin a veces salta al home.
+❗En el header muestra el id y no el nombre del usuario.
+❗Slider en la pagina home.
 
 ### Vistas 👀
 

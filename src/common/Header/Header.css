@@ -13,7 +13,7 @@
 .authMenu {
   display: flex;
   flex-direction: row;
-  margin:0;
+  padding-right: 4%;
 }
 
 .letraDesign {

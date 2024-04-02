@@ -134,7 +134,7 @@ export const Appointments = () => {
                   <div className="cardAppointments">
                     <div>{appointment.service.serviceName}</div>
                     <div>{formattedDate}</div>
-                    <div>borrar cita </div>
+                    <div>Borrar cita</div> 
                   </div>
                 </div>
               );

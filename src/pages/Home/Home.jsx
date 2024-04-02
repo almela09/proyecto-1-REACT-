@@ -20,7 +20,7 @@ export const Home = () => {
               />
               <div className="containerDesign">
                 <Tipografia
-                  text="Donde nada de la página funciona :), si quieres mas info pues estas fastidiado."
+                  text="Expertos en tatuajes estilo acuarela, visitanos en Alameda Jaime I 19, Xàtiva."
                   fontSize="25px"
                   color="blue"
                   fontFamily="Arial"

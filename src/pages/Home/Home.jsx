@@ -15,7 +15,7 @@ export const Home = () => {
               <Tipografia
                 text="Welcome to MICHI TATTOO"
                 fontSize="60px"
-                color="blue"
+                color= "darkblue"
                 fontFamily="Impact"
               />
               <div className="containerDesign">

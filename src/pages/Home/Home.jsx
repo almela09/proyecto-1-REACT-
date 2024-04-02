@@ -13,7 +13,7 @@ export const Home = () => {
             
             <h1>
               <Tipografia
-                text="WELCOME TO MICHI TATTOO"
+                text="Welcome to MICHI TATTOO"
                 fontSize="60px"
                 color="blue"
                 fontFamily="Impact"

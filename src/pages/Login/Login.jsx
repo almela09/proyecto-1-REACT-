@@ -7,7 +7,7 @@ import "./Login.css";
 import { LoginUser } from "../../Services/ApiCalls";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../common/Header/Header";
-
+import { Tipografia } from "../../common/Tipografia/Tipografia";
 export const Login = () => {
   const datosUser = JSON.parse(localStorage.getItem("passport"));
   const navigate = useNavigate();
@@ -79,14 +79,14 @@ export const Login = () => {
   return (
     <>
       <Header />
+      
+      <div className="loginDesign">
       <Tipografia
           text="Logueate"
           fontSize="30px"
           color="blue"
           fontFamily="Impact"
         />
-      <div className="loginDesign">
-
         <CInput
           className={`inputDesign ${
             credencialesError.emailError !== "" ? "inputDesignError" : ""

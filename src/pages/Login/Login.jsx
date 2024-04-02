@@ -79,7 +79,14 @@ export const Login = () => {
   return (
     <>
       <Header />
+      <Tipografia
+          text="Logueate"
+          fontSize="30px"
+          color="blue"
+          fontFamily="Impact"
+        />
       <div className="loginDesign">
+
         <CInput
           className={`inputDesign ${
             credencialesError.emailError !== "" ? "inputDesignError" : ""

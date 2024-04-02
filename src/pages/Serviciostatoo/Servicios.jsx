@@ -24,17 +24,6 @@ export const Servicios = () => {
     }
   }, [servicios]);
 
-  // useEffect(() => {
-  //   getServices()
-  //   console.log(servicios)
-  //     .then(setServicios)
-  //     .catch((error) => console.error("Error al cargar los servicios:", error));
-  // }, []);
-
-  // const handleServiceClick = (id) => {
-  //   navigate(`/servicios/${id}`);
-  // };
-
   return (
     <>
       <Header />

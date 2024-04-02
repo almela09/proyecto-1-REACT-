@@ -70,7 +70,7 @@ export const GetProfile = async (token) => {
   }
 };
 
-export const UpdateProfile = async (token, data) => { 
+export const UpdateProfile = async (token, data) => {
   const options = {
     method: "PUT",
     headers: {
@@ -123,7 +123,7 @@ export const getAppointments = async (token) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   };
   try {
@@ -164,61 +164,47 @@ export const createAppointments = async (token, appointmentsData) => {
   }
 };
 
-export const getUsers = async(token)=>{
+export const getUsers = async (token) => {
   const options = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    }
-  }
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
   try {
-    const response = await fetch(`${root}users`, options)
+    const response = await fetch(`${root}users`, options);
 
-    const data = await response.json()
+    const data = await response.json();
 
-    /*if (!data.success) {
-      throw new Error(data.message)
-    }*/
-
-    return data
+    return data;
   } catch (error) {
-    return error
-    
+    return error;
   }
+};
 
-}
-
-export const deleteUser = async (token, UserId) =>{
-
+export const deleteUser = async (token, UserId) => {
   const options = {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
     // body: JSON.stringify(data)
-  }
+  };
 
   try {
-    const response = await fetch(`${root}users/${UserId}`, options)
+    const response = await fetch(`${root}users/${UserId}`, options);
 
-    const data = await response.json()
+    const data = await response.json();
 
     if (!data.success) {
-      throw new Error(data.message)
+      throw new Error(data.message);
     }
 
-    return data
-
+    return data;
   } catch (error) {
-    return error
+    return error;
   }
-
-
-
-}
-
-
- 
+};

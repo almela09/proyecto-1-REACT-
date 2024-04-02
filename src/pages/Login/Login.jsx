@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
-import {decodeToken}from "react-jwt"
+import { decodeToken } from "react-jwt";
 import { CButton } from "../../common/CButton/CButton";
 import { CInput } from "../../common/CInput/CInput";
-import{validame} from "../../utils/functions"
+import { validame } from "../../utils/functions";
 import "./Login.css";
-import{LoginUser} from "../../Services/ApiCalls"
+import { LoginUser } from "../../Services/ApiCalls";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../common/Header/Header";
-
-
 
 export const Login = () => {
   const datosUser = JSON.parse(localStorage.getItem("passport"));
@@ -46,7 +44,6 @@ export const Login = () => {
     setCredencialesError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: error,
-     
     }));
   };
 
@@ -69,9 +66,7 @@ export const Login = () => {
 
       localStorage.setItem("passport", JSON.stringify(passport));
 
-      setMsgError(
-        `Hola ${decodificado.name}, bienvenido a Michi Tattoo`
-      );
+      setMsgError(`Hola ${decodificado.name}, bienvenido a Michi Tattoo`);
 
       setTimeout(() => {
         navigate("/");

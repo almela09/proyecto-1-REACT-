@@ -5,6 +5,7 @@ import { getUsers, deleteUser } from "../../Services/ApiCalls";
 import { useEffect, useState } from "react";
 import { Tipografia } from "../../common/Tipografia/Tipografia";
 import { Header } from "../../common/Header/Header";
+
 export const Admin = () => {
   const dataUser = JSON.parse(localStorage.getItem("passport"));
 
@@ -26,7 +27,6 @@ export const Admin = () => {
     }
   };
   useEffect(() => {
-    
     console.log(Users.length);
     if (Users.length === 0) {
       getAllUsers();
@@ -43,9 +43,6 @@ export const Admin = () => {
     try {
       const fetched = await deleteUser(tokenStorage, UserId);
 
-      /*if (!fetched.success) {
-        setUsers(Users.filter((items) => items.id !== UserId));
-      }*/
       getAllUsers();
     } catch (error) {
       console.log(error.message);

@@ -2,7 +2,7 @@ import "./Register.css";
 import { useState } from "react";
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
-import { RegisterUser }from "../../Services/ApiCalls"
+import { RegisterUser } from "../../Services/ApiCalls";
 import { validame } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../common/Header/Header";
@@ -26,9 +26,7 @@ export const Register = () => {
 
   const [msgError, setMsgError] = useState("");
 
-  
   const inputHandler = (e) => {
-   
     setUser((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -41,7 +39,6 @@ export const Register = () => {
     setUserError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: error,
-      
     }));
   };
 
@@ -72,11 +69,11 @@ export const Register = () => {
       <div className="registerDesign">
         <pre>{JSON.stringify(user, null, 2)}</pre>
         <Tipografia
-                text="Regístrate"
-                fontSize="30px"
-                color="blue"
-                fontFamily="Impact"
-            />
+          text="Regístrate"
+          fontSize="30px"
+          color="blue"
+          fontFamily="Impact"
+        />
         <CInput
           className={`inputDesign ${
             userError.nameError !== "" ? "inputDesignError" : ""

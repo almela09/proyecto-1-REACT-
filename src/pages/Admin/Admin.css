@@ -1,29 +1,26 @@
 .adminDesign {
+  min-height: 84vh;
+  width: 100vw;
 
-    min-height: 84vh;
-    width: 100vw;
+  background-color: whitesmoke;
 
-    background-color: whitesmoke;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .userDesign {
+  width: max-content;
 
-    width: max-content;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-    background-color: rgb(255, 255, 255);
-    margin: 1em;
+  background-color: rgb(255, 255, 255);
+  margin: 1em;
 
-    border-radius: 1em;
-    
+  border-radius: 1em;
 
-    color: rgb(20, 21, 83);
+  color: rgb(20, 21, 83);
 }

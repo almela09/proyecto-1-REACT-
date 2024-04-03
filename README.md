@@ -19,6 +19,7 @@
 ### ¿De que va el proyecto? ✏️📝
 Proyecto frontend que se basa en la api rest realizada con anterioridad de un estudio de tatuajes en el cual se puede agendar una cita, acceder al perfil de usuario y acceder como administrador.
 
+
 ### Stack ⚙️
 
  <div align="center">

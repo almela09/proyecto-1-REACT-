@@ -208,3 +208,27 @@ export const deleteUser = async (token, UserId) => {
     return error;
   }
 };
+
+export const deleteAppointment = async (token, appointmentId) => {
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  };
+
+  try {
+    const response = await fetch(`${root}appointments/${appointmentId}`, options);
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Error al borrar la cita:", error);
+    return null; // Devuelve null o un indicador adecuado de error
+  }
+};

@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../common/Header/Header";
-import { getAppointments, createAppointments } from "../../Services/ApiCalls";
+import {
+  getAppointments,
+  createAppointments,
+  deleteAppointment,
+} from "../../Services/ApiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
 import { getServices } from "../../Services/ApiCalls";
@@ -8,7 +12,7 @@ import { Tipografia } from "../../common/Tipografia/Tipografia";
 
 import "./Appointments.css";
 
-const fetched = await getServices(); 
+const fetched = await getServices();
 const servicios = fetched.data;
 
 export const Appointments = () => {
@@ -32,7 +36,6 @@ export const Appointments = () => {
 
   const handleCreateAppointments = async () => {
     try {
-      
       let a = {
         serviceId: appointmentsData.serviceId,
         appointmentDate: appointmentsData.appointmentDate,
@@ -69,6 +72,21 @@ export const Appointments = () => {
       });
     } catch (error) {
       console.log(error);
+    }
+  };
+  const deletingAppointment = async (appointmentId) => {
+    try {
+      const result = await deleteAppointment(tokenStorage, appointmentId);
+
+      if (result && result.success) {
+        setAppointments(
+          appointments.filter((item) => item.id !== appointmentId)
+        );
+      } else {
+        console.error("Error al borrar la cita:", result?.message);
+      }
+    } catch (error) {
+      console.error("Error al borrar la cita:", error);
     }
   };
   return (
@@ -134,7 +152,15 @@ export const Appointments = () => {
                   <div className="cardAppointments">
                     <div>{appointment.service.serviceName}</div>
                     <div>{formattedDate}</div>
-                    <div>Borrar cita</div> 
+                    <div
+                      className="CButton"
+                      onClick={() => deleteAppointment(appointment.id)}
+                    ></div>
+                    <CButton
+                      className="CButtonDesign"
+                      title="Borrar cita"
+                      functionEmit={() => deletingAppointment(appointment.id)}
+                    />
                   </div>
                 </div>
               );
